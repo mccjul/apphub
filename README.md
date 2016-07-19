@@ -29,12 +29,11 @@ Once you sign up, the dashboard will walk you through incorporating the AppHub S
 
 Some developers wish to configure their own backend to host and serve builds to mobile clients. This is an advanced feature; most developers choose to use AppHub hosting and the AppHub developer dashboard.
 
-We are working on making this process easier. In the meantime, we'd love to take PRs for improved documentation and hosting support!
+See the [AppHub docs](http://docs.apphub.io/v1.0/docs/self-hosting) for full documentation on self-hosting.
 
 ## Developer Resources
 
-Building a React Native app with AppHub?
-
+- [AppHub Deploy](https://github.com/joshuapinter/apphubdeploy): a CLI by [Joshua Pinter](https://twitter.com/joshuapinter) that makes it easy to build and deploy to AppHub.
 - iOS Documentation: iOS API documentation is available at [https://apphub.io/api/ios/](https://apphub.io/api/ios/)
 - Documentation: AppHub documentation is available at [http://docs.apphub.io](http://docs.apphub.io)
 - Example project: check out [this example project](https://github.com/AppHubPlatform/AppHubStarterProject) which alets users when new a new version of your app becomes available.

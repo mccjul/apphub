@@ -8,12 +8,7 @@
 #import "AHDefines.h"
 #import "AHConstants.h"
 
-NSString *const AHSDKVersion = @"0.3.5";
-
-// NSString *const AHEndpoint = @"http://apphub-staging.herokuapp.com/v1";
-NSString *const AHEndpoint = @"https://api.apphub.io/v1";
-//NSString *const AHEndpoint = @"http://localhost:5000/v1";
-// NSString *const AHEndpoint = @"http://55387d52.ngrok.io/v1";
+NSString *const AHSDKVersion = @"0.5.0";
 
 NSString *const AHAssetBundleName = @"Assets.bundle";
 

@@ -4,7 +4,11 @@ var execSync = require('child_process').execSync;
 var path = require('path');
 var uuid = require('node-uuid');
 var mkdirp = require('mkdirp');
+<<<<<<< HEAD
 var BUILD_DIR_SUFFIX = '.bundle';
+=======
+var BUILD_DIR_NAME = 'ios.bundle';
+>>>>>>> AppHubPlatform/master
 
 var argv = require('yargs')
   .usage('apphub <command>')
@@ -32,11 +36,14 @@ var argv = require('yargs')
         default: false,
         description: 'If false, warnings are disabled and the bundle is minified'
       })
+<<<<<<< HEAD
       .option('platform',  {
         description: 'Which platform to build',
         choices: ['ios', 'android'],
         required: true
       })
+=======
+>>>>>>> AppHubPlatform/master
       .help('help')
       .argv
 
@@ -46,12 +53,18 @@ var argv = require('yargs')
 
     var plistFile = argv.plistFile ||
       path.join('ios', require(path.join(process.cwd(), 'package.json')).name, 'Info.plist');
+<<<<<<< HEAD
 
     var gradleFile = argv.gradleFile || path.join('android', 'build.gradle');
 
     var outputZip = path.join(process.cwd(), argv.outputZip);
     var tmpDir = path.join('/tmp', 'apphub', uuid.v4());
     var buildDir = path.join(tmpDir, buildDirName);
+=======
+    var outputZip = path.join(process.cwd().replace(/ /g, '\\ '), argv.outputZip);
+    var tmpDir = path.join('/tmp', 'apphub', uuid.v4());
+    var buildDir = path.join(tmpDir, BUILD_DIR_NAME);
+>>>>>>> AppHubPlatform/master
     mkdirp.sync(buildDir);
 
     var options = [
@@ -59,9 +72,10 @@ var argv = require('yargs')
       '--dev', argv.dev,
       '--bundle-output', path.join(buildDir, argv.outputFile),
       '--assets-dest', buildDir,
-      '--platform', argv.platform,
+      '--platform', 'ios',
     ];
 
+<<<<<<< HEAD
     var cmds = ['react-native bundle ' + options.join(' ')]
 
     if (argv.platform === 'ios') {
@@ -73,6 +87,13 @@ var argv = require('yargs')
 
     cmds.push('cd ' + tmpDir + ' && zip -r ' + outputZip + ' ' + buildDirName)
     
+=======
+    var cmds = [
+      'node node_modules/react-native/local-cli/cli.js bundle ' + options.join(' '),
+      'cp ' + plistFile + ' ' + buildDir,
+      'cd ' + tmpDir + ' && zip -r ' + outputZip + ' ' + BUILD_DIR_NAME,
+    ];
+>>>>>>> AppHubPlatform/master
     for (var i = 0; i < cmds.length; i++) {
       var cmd = cmds[i];
       console.log(cmd);

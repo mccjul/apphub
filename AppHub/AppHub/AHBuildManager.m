@@ -172,6 +172,9 @@ NSString *const AHBuildManagerBuildKey = @"AHNewBuildKey";
             completion(nil, AHError(@"Build does not contain bundle at path: %@", bundleDirectory.path));
         }
     }];
+    if (self.taskHandlerBlock) {
+        self.taskHandlerBlock(task);
+    }
     [task resume];
 }
 
@@ -181,12 +184,12 @@ NSString *const AHBuildManagerBuildKey = @"AHNewBuildKey";
     NSString *appVersion = [self installedAppVersion];
     
 #if TARGET_IPHONE_SIMULATOR
-    NSString *deviceID = [NSBundle mainBundle].bundlePath;
+    NSString *deviceID = @"SIMULATOR";
 #else
     NSString *deviceID = [UIDevice currentDevice].identifierForVendor.UUIDString;
 #endif
     
-    NSString *getBuildRequestString = [NSString stringWithFormat:@"%@/projects/%@/build?sdk_version=%@&app_version=%@&device_uid=%@&debug=%d", AHEndpoint, [AppHub applicationID], AHSDKVersion, appVersion, deviceID, _debugBuildsEnabled];
+    NSString *getBuildRequestString = [NSString stringWithFormat:@"%@/projects/%@/build?sdk_version=%@&app_version=%@&device_uid=%@&debug=%d", [AppHub rootURL], [AppHub applicationID], AHSDKVersion, appVersion, deviceID, _debugBuildsEnabled];
 
     AHLog(AHLogLevelDebug, @"Downloading build information from URL: %@", getBuildRequestString);
 
