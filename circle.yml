@@ -16,13 +16,6 @@ test:
       CODE_SIGNING_REQUIRED=NO
       -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest'
       -sdk iphonesimulator
-<<<<<<< HEAD
-      -project AppHubIntegration/AppHubIntegration.xcodeproj
-      -scheme "AppHubIntegration"
-      build build-tests run-tests
-    - cd android && ./gradlew test
-=======
       -project AppHub/AppHub.xcodeproj
       -scheme "AppHubTests"
       build build-tests run-tests
->>>>>>> AppHubPlatform/master
