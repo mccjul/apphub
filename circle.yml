@@ -13,7 +13,7 @@ dependencies:
     - brew install npm
     - brew uninstall xctool && brew install xctool
   override:
-    - source scripts/android-test.sh && getAndroidSDK
+    #- source scripts/android-test.sh && getAndroidSDK
 
 test:
   pre:
