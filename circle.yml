@@ -12,8 +12,7 @@ test:
     # start the emulator
     - emulator -avd circleci-android22 -no-audio -no-window:
         background: true
-        parallel: true
-        
+
   override:
     # run tests  against the emulator.
     - ./android/gradlew connectedAndroidTest

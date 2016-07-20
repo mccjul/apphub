@@ -10,13 +10,15 @@ ext {
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "23.0.1"
+    buildToolsVersion '24.0.1'
 
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
+        testApplicationId "com.example.tests"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
