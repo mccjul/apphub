@@ -15,7 +15,7 @@ test:
 
   override:
     # run tests  against the emulator.
-    - ./android/gradlew test
+    - ./gradlew test
     #- ./android/gradlew clean assembleDebug -Dscan --configure-on-demand --daemon --stacktrace
     # copy the build outputs to artifacts
     - cp -r android/app/build/outputs $CIRCLE_ARTIFACTS
