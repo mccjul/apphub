@@ -21,7 +21,7 @@ test:
         background: true
     - ./android/gradlew assembleDebug:
         timeout: 360
-    - source scripts/environmentSetup.sh && waitForAVD
+    #- source scripts/environmentSetup.sh && waitForAVD
 
 
   override:
