@@ -1,27 +1,32 @@
+general:
+ artifacts:
+    - "~/build_output.zip" # Save APK's, Lint Results, and Test Results
+
 machine:
   xcode:
     version: "7.0"
+  environment:
+    ANDROID_HOME: /usr/local/android-sdk-linux
 
 dependencies:
   pre:
     - brew install npm
     - brew uninstall xctool && brew install xctool
+  override:
+    - source scripts/android-test.sh && getAndroidSDK
 
 test:
   pre:
-    # start the emulator
-    - emulator -avd circleci-android22 -no-audio -no-window:
+    - $ANDROID_HOME/tools/emulator -avd testAVD -no-skin -no-audio -no-window:
         background: true
+    - ./gradlew assembleDebug:
+        timeout: 360
+    - source scripts/environmentSetup.sh && waitForAVD
+
 
   override:
-    # run tests  against the emulator.
-    - ./android/gradlew test
-    #- ./android/gradlew clean assembleDebug -Dscan --configure-on-demand --daemon --stacktrace
-    # copy the build outputs to artifacts
-    - cp -r android/app/build/outputs $CIRCLE_ARTIFACTS
-    # copy the test results to the test results directory.
-    - cp -r android/app/build/outputs/test-results/debug $CIRCLE_TEST_REPORTS
-
+    - ./gradlew connectedAndroidTest --info:
+    - zip -r ~/build_output.zip app/build/outputs/
     - xctool
       -reporter pretty
       -reporter junit:$CIRCLE_TEST_REPORTS/xcode/results.xml
