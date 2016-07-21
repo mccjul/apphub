@@ -5,6 +5,8 @@ general:
 machine:
   xcode:
     version: "7.0"
+  android:
+    
   environment:
     ANDROID_HOME: /usr/local/android-sdk-linux
 
@@ -12,6 +14,7 @@ dependencies:
   pre:
     - brew install npm
     - brew uninstall xctool && brew install xctool
+    - echo y | android update sdk --no-ui --all --filter "android-22"
   override:
     #- source scripts/android-test.sh && getAndroidSDK
 
