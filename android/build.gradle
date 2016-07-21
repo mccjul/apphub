@@ -14,6 +14,10 @@ buildscript {
 
 allprojects {
     repositories {
+        mavenLocal()
         jcenter()
+        jcenter {
+            url "http://dl.bintray.com/mkonicek/maven"
+        }
     }
 }
