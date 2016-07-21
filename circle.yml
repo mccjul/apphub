@@ -18,7 +18,7 @@ dependencies:
 
 test:
   pre:
-    - emulator -avd circleci-android22 -no-audio -no-window:
+    - emulator -avd circleci-android22 -no-audio -no-window
     #- android wait-for-boot
     - cd android && ./gradlew assembleDebug:
         timeout: 360
