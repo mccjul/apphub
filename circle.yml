@@ -21,7 +21,7 @@ test:
     - emulator -avd circleci-android22 -no-audio -no-window:
         background: true
         parallel: true
-    - circle-android wait-for-boot
+    - circleci-android wait-for-boot
     - cd android && ./gradlew assembleDebug:
         timeout: 360
     #- source scripts/environmentSetup.sh && waitForAVD
