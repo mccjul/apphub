@@ -5,6 +5,7 @@ general:
 machine:
   xcode:
     version: "7.0"
+
   environment:
     ANDROID_HOME: /usr/local/android-sdk-linux
 
@@ -12,7 +13,6 @@ dependencies:
   pre:
     - brew install npm
     - brew uninstall xctool && brew install xctool
-    - echo y | android update sdk --no-ui --all --filter "android-22"
   override:
     #- source scripts/android-test.sh && getAndroidSDK
 
@@ -20,6 +20,7 @@ test:
   pre:
     - $ANDROID_HOME/tools/emulator -avd testAVD -no-skin -no-audio -no-window:
         background: true
+    - circle-android wait-for-boot
     - cd android && ./gradlew assembleDebug:
         timeout: 360
     #- source scripts/environmentSetup.sh && waitForAVD
