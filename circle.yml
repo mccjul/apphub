@@ -5,8 +5,6 @@ general:
 machine:
   xcode:
     version: "7.0"
-  android:
-    
   environment:
     ANDROID_HOME: /usr/local/android-sdk-linux
 
