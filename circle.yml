@@ -25,7 +25,7 @@ test:
 
 
   override:
-    - cd android && ./gradlew assembleDebug --stacktrace --info --debug:
+    - cd android && ./gradlew assembleDebug:
         timeout: 360
     - cd android && ./gradlew connectedAndroidTest --info:
         timeout: 360
