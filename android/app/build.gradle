@@ -17,8 +17,6 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
-        testApplicationId "com.example.tests"
-        testInstrumentationRunner "android.test.InstrumentationTestRunner"
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
