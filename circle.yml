@@ -13,7 +13,6 @@ dependencies:
   pre:
     - brew install npm
     - brew uninstall xctool && brew install xctool
-    - wget "https://services.gradle.org/distributions/gradle-2.9-bin.zip"; unzip gradle-2.9-bin.zip
 
 test:
   pre:
