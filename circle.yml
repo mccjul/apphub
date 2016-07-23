@@ -17,7 +17,7 @@ test:
         background: true
         parallel: true
     - circle-android wait-for-boot
-    
+
   override:
-    - cd android && ./gradlew clean test --info
+    - cd android && ./gradlew test --debug
     - zip -r ~/build_output.zip app/build/outputs/
