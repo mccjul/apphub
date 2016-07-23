@@ -19,14 +19,11 @@ test:
     - emulator -avd circleci-android22 -no-audio -no-window:
         background: true
         parallel: true
-    #- android wait-for-boot
-
-    #- source scripts/environmentSetup.sh && waitForAVD
+     - cd android && ./gradlew assembleDebug:
+        timeout: 1000
 
 
   override:
-    - cd android && ./gradlew assembleDebug:
-        timeout: 360
     - cd android && ./gradlew connectedAndroidTest --info:
         timeout: 360
     - zip -r ~/build_output.zip app/build/outputs/
