@@ -11,10 +11,9 @@ ext {
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion '24.0.1'
 
     defaultConfig {
-        applicationId "com.apphub.android"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
