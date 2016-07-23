@@ -10,6 +10,7 @@ dependencies:
   pre:
     - brew install npm
     - brew uninstall xctool && brew install xctool
+    - cd android && ./gradlew dependencies
 
 test:
   pre:
