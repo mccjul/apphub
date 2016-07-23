@@ -18,5 +18,5 @@ test:
         parallel: true
 
   override:
-    - cd android && ./gradlew test --debug
+    - cd android && ./gradlew test --info
     - zip -r ~/build_output.zip app/build/outputs/
