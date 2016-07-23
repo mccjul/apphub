@@ -8,6 +8,7 @@ machine:
 
 dependencies:
   pre:
+    - brew install npm
     - brew uninstall xctool && brew install xctool
 
 test:
@@ -16,7 +17,7 @@ test:
         background: true
         parallel: true
     - circle-android wait-for-boot
-
+    
   override:
     - cd android && ./gradlew clean test --info
     - zip -r ~/build_output.zip app/build/outputs/
