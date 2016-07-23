@@ -13,6 +13,7 @@ dependencies:
   pre:
     - brew install npm
     - brew uninstall xctool && brew install xctool
+    - wget "https://services.gradle.org/distributions/gradle-2.9-bin.zip"; unzip gradle-2.9-bin.zip
 
 test:
   pre:
@@ -20,18 +21,6 @@ test:
         background: true
         parallel: true
 
-
-
   override:
-    - cd android && ./gradlew test --info
+    - cd android && ./gradlew clean test --info
     - zip -r ~/build_output.zip app/build/outputs/
-    - xctool
-      -reporter pretty
-      -reporter junit:$CIRCLE_TEST_REPORTS/xcode/results.xml
-      -reporter plain:$CIRCLE_ARTIFACTS/xctool.log
-      CODE_SIGNING_REQUIRED=NO
-      -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest'
-      -sdk iphonesimulator
-      -project AppHub/AppHub.xcodeproj
-      -scheme "AppHubTests"
-      build build-tests run-tests
