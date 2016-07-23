@@ -6,12 +6,8 @@ machine:
   xcode:
     version: "7.0"
 
-  environment:
-    ANDROID_HOME: /usr/local/android-sdk-linux
-
 dependencies:
   pre:
-    - brew install npm
     - brew uninstall xctool && brew install xctool
 
 test:
@@ -19,6 +15,7 @@ test:
     - emulator -avd circleci-android22 -no-audio -no-window:
         background: true
         parallel: true
+    - circle-android wait-for-boot
 
   override:
     - cd android && ./gradlew clean test --info
