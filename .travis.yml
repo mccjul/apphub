@@ -7,7 +7,7 @@ android:
     # - tools
 
     # The BuildTools version used by your project
-    - build-tools-19.1.0
+    - build-tools-24.0.1
 
     # The SDK version used to compile your project
     - android-22
@@ -23,4 +23,6 @@ android:
     - sys-img-armeabi-v7a-android-22
     - sys-img-x86-android-17
 
-script: cd android && ./gradlew test --info
+script: 
+  #- cd android && ./gradlew test --info
+  - cd android && ./gradlew clean assemble check
