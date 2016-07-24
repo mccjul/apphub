@@ -25,4 +25,4 @@ android:
 
 script: 
   #- cd android && ./gradlew test --info
-  - cd android && ./gradlew clean assemble check --info
+  - cd android && ./gradlew clean assemble check --debug
