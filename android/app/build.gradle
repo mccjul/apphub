@@ -24,7 +24,13 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 }
-
+sourceSets {
+    test {
+        java {
+            srcDirs = ["app/src/test"]  // Note @Peter's comment below
+        }
+    }
+}
 
 dependencies {
     testCompile 'junit:junit:4.12'
