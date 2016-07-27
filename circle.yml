@@ -11,7 +11,7 @@ dependencies:
   pre:
     - npm install
   override:
-    - cd android && ./gradlew dependencies --stacktrace
+    - cd android && ./gradlew build dependencies --stacktrace
 
 test:
   pre:

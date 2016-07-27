@@ -23,4 +23,4 @@ android:
     - sys-img-armeabi-v7a-android-22
 
 script: 
-  - cd android && ./gradlew test --info
+  - cd android && ./gradlew build test --info
