@@ -5,6 +5,9 @@ general:
 machine:
   node:
     version: 0.10.22
+  services:
+    - android
+
 
 dependencies:
   pre:
