@@ -12,6 +12,26 @@ buildscript {
     }
 }
 
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+  
+  sourceSets {
+    main {
+      manifest.srcFile './app/src/main/AndroidManifest.xml'
+    }
+  }
+}
+
 allprojects {
     repositories {
         jcenter()

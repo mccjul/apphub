@@ -1,14 +1,8 @@
 language: android
-jdk: oraclejdk8
+jdk: oraclejdk7
 android:
   components:
-    - build-tools-24.0.1
-
-before_script:
-  # Create and start emulator
-  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-  - emulator -avd test -no-skin -no-audio -no-window &
-  - adb wait-for-device
-  - adb shell input keyevent 82 &
+    - build-tools-22.0.1
+    - sys-img-armeabi-v7a-android-22
 
 script: cd android && ./gradlew test --debug
