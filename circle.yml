@@ -2,12 +2,12 @@ general:
  artifacts:
     - "~/build_output.zip" # Save APK's, Lint Results, and Test Results
 
-
+machine:
+  node:
+    version: 0.10.22
 
 dependencies:
   pre:
-    - brew install npm
-    - brew uninstall xctool && brew install xctool
     - npm install
   override:
     - cd android && ./gradlew dependencies --stacktrace
