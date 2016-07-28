@@ -12,7 +12,7 @@ buildscript {
     }
 }
 
-apply plugin: 'android'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 22
