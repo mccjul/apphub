@@ -29,6 +29,7 @@ android {
     main {
       manifest.srcFile './app/src/main/AndroidManifest.xml'
     }
+    androidTest.setRoot('/app/src/test')
   }
 }
 
