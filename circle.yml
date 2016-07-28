@@ -11,14 +11,9 @@ dependencies:
   pre:
     - npm install
   override:
-    - cd android && ./gradlew build dependencies --debug
+    #- cd android && ./gradlew build dependencies --info
 
 test:
-  pre:
-    - emulator -avd circleci-android22 -no-audio -no-window:
-        background: true
-        parallel: true
-
   override:
     - cd android && ./gradlew test --info
     - zip -r ~/build_output.zip app/build/outputs/
