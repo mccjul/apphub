@@ -3,6 +3,9 @@ jdk: oraclejdk8
 android:
   components:
     - build-tools-22.0.1
-    - sys-img-armeabi-v7a-android-22
+    - android-22
+    - add-on
+    - extra
 
-script: cd android && ./gradlew clean test --info
+script: 
+  - cd android && ./gradlew test --info
