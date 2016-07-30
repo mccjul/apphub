@@ -1,21 +1,19 @@
+general:
+ artifacts:
+    - "~/build_output.zip" # Save APK's, Lint Results, and Test Results
+
 machine:
-  xcode:
-    version: "7.0"
+  node:
+    version: 0.10.22
+
 
 dependencies:
   pre:
-    - brew install npm
-    - brew uninstall xctool && brew install xctool
+    - npm install
+  override:
+    #- cd android && ./gradlew build dependencies --info
 
 test:
   override:
-    - xctool
-      -reporter pretty
-      -reporter junit:$CIRCLE_TEST_REPORTS/xcode/results.xml
-      -reporter plain:$CIRCLE_ARTIFACTS/xctool.log
-      CODE_SIGNING_REQUIRED=NO
-      -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest'
-      -sdk iphonesimulator
-      -project AppHub/AppHub.xcodeproj
-      -scheme "AppHubTests"
-      build build-tests run-tests
+    - cd android && ./gradlew test --info
+    - zip -r ~/build_output.zip app/build/outputs/
