@@ -6,6 +6,7 @@ android:
     - android-22
     - add-on
     - extra
-
+before_install:
+  - cd android
 script: 
-  - cd android && ./gradlew test --info
+  - ./gradlew test --info
